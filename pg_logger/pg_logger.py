@@ -9,7 +9,7 @@ from .utils import get_user_globals, get_user_locals, filter_var_dict, visit_all
     compileGlobMatch, raw_input_wrapper, python2_input_wrapper
 from .sandbox import open_wrapper, create_banned_builtins_wrapper, __restricted_import__, mouse_input_wrapper
 from .constants import MAX_EXECUTED_LINES, BREAKPOINT_STR, PYTUTOR_HIDE_STR, PYTUTOR_INLINE_TYPE_STR, is_python3, \
-    CLASS_RE, BANNED_BUILTINS, ALLOWED_STDLIB_MODULE_IMPORTS, DEBUG
+    CLASS_RE, BANNED_BUILTINS, ALLOWED_STDLIB_MODULE_IMPORTS, DEBUG, PRE_IMPORT_MODULES
 
 # simple sandboxing scheme:
 #
@@ -984,7 +984,7 @@ class PGLogger(bdb.Bdb):
             if self.allow_all_modules:
                 import ast
                 try:
-                    all_modules_to_preimport = []
+                    all_modules_to_preimport = PRE_IMPORT_MODULES
                     tree = ast.parse(script_str)
                     for node in ast.walk(tree):
                         if isinstance(node, ast.Import):

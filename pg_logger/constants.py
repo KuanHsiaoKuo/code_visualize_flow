@@ -44,7 +44,7 @@ else:
     BUILTIN_IMPORT = __builtins__.__import__
 
 # whitelist of module imports
-ALLOWED_STDLIB_MODULE_IMPORTS = ('math', 'random', 'time', 'datetime',
+ALLOWED_STDLIB_MODULE_IMPORTS = ['math', 'random', 'time', 'datetime',
                                  'functools', 'itertools', 'operator', 'string',
                                  'collections', 're', 'json',
                                  'heapq', 'bisect', 'copy', 'hashlib', 'typing',
@@ -62,11 +62,12 @@ ALLOWED_STDLIB_MODULE_IMPORTS = ('math', 'random', 'time', 'datetime',
                                  'types', 'array',
                                  'locale', 'abc',
                                  'doctest', 'unittest',
-                                 )
+                                 ]
 
+PRE_IMPORT_MODULES = ['pandas', 'numpy']
 # allow users to import but don't explicitly import it since it's
 # already been done above
-OTHER_STDLIB_WHITELIST = ('StringIO', 'io')
+OTHER_STDLIB_WHITELIST = ['StringIO', 'io'] + PRE_IMPORT_MODULES
 
 # blacklist of builtins
 BANNED_BUILTINS = []  # 2018-06-15 don't ban any builtins since that's just security by obscurity
