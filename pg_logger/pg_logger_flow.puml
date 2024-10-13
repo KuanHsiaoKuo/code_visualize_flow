@@ -1,0 +1,34 @@
+@startuml
+
+|PGLogger|
+start
+:Initialize PGLogger;
+if (Custom Modules?) then (yes)
+  :Add custom modules to trace;
+else (no)
+endif
+
+repeat
+  :Run script;
+  if (Exception?) then (yes)
+    :Handle exception;
+    stop
+  else (no)
+  endif
+
+  if (Breakpoint?) then (yes)
+    :Record trace entry;
+  else (no)
+  endif
+
+  if (Max Executed Lines?) then (yes)
+    :Stop execution;
+    stop
+  else (no)
+  endif
+repeat while (More lines to execute?)
+
+:Finalize trace;
+stop
+
+@enduml
