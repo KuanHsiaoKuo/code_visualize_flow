@@ -1,5 +1,13 @@
 # Code Visualize Flow: Enhanced Code Execution Visualization
 
+## How to Run
+
+```python
+pip install -r requirements.txt
+python bottle_server.py # python 3.x (x <=9)
+python flask_server.py # python 3.x (x > 9)
+```
+
 ## Raw:
 
 - [pathrise-python-tutor/v3/docs/developer-overview.md at master · pathrise-eng/pathrise-python-tutor](https://github.com/pathrise-eng/pathrise-python-tutor/blob/master/v3/docs/developer-overview.md)
