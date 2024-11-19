@@ -64,7 +64,7 @@ ALLOWED_STDLIB_MODULE_IMPORTS = ['math', 'random', 'time', 'datetime',
                                  'doctest', 'unittest',
                                  ]
 
-PRE_IMPORT_MODULES = ['pandas', 'numpy']
+PRE_IMPORT_MODULES = ['pandas', 'numpy', 'asyncio']
 # allow users to import but don't explicitly import it since it's
 # already been done above
 OTHER_STDLIB_WHITELIST = ['StringIO', 'io'] + PRE_IMPORT_MODULES
