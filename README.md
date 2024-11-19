@@ -3,9 +3,13 @@
 ## How to Run
 
 ```python
-pip install -r requirements.txt
-python bottle_server.py # python 3.x (x <=9)
-python flask_server.py # python 3.x (x > 9)
+pip
+install - r
+requirements.txt
+python
+bottle_server.py  # python 3.x (x <=9)
+python
+flask_server.py  # python 3.x (x > 9)
 ```
 
 ## Raw:
@@ -102,3 +106,34 @@ Below is a simplified representation of the PGLogger's design flow:
 
 This diagram outlines the key execution phases handled by PGLogger, illustrating an overview of its process from
 initialization through execution to termination.
+
+## Why Not Support Pandas/Numpy in Code Visualization Flow
+
+While using code visualization tools like Python Tutor can be highly beneficial for understanding and illustrating
+Python code execution, there are limitations when it comes to supporting certain libraries, such as Pandas and Numpy.
+These libraries, although powerful and widely used for data manipulation and numerical computations, rely extensively on
+C extensions and complex data structures.
+
+```shell
+<frozen importlib._bootstrap>:228: RuntimeWarning: Cython module failed to patch module with custom type
+```
+
+### Key Reasons:
+
+1. **Complexity of C Extensions**: Pandas and Numpy utilize C and Cython code to achieve high performance and
+   efficiency, which are not easily simulated or executed in the restricted Python environment that most visualization
+   tools provide.
+
+2. **Resource Constraints**: These libraries require significant computational resources and optimized environments that
+   code visualization tools often cannot offer. This includes handling large datasets and matrix operations efficiently.
+
+3. **Runtime Environment Limitations**: The runtime environments used by such tools simplify Python’s execution model to
+   allow step-by-step visualization. This simplification often cannot accommodate the advanced operations and
+   optimizations made available by Pandas and Numpy.
+
+4. **Maintenance Overhead**: Keeping a visualization tool in sync with the fast-evolving features and optimizations of
+   these libraries would be challenging and resource-intensive.
+
+For in-depth analysis and visual debugging of code that involves Pandas or Numpy, it's recommended to use local tools
+like Jupyter Notebooks, where the full power of these libraries can be leveraged with robust supporting infrastructure.
+
